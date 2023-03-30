@@ -75,11 +75,11 @@ let func = function () {
   console.log("hi");
 };
 
-const add = function (a: number, b: number): string {
-  return (a + b).toString();
-};
+// const add = function (a: number, b: number): string {
+//   return (a + b).toString();
+// };
 
-let beStr: string = add(1, 2);
+// let beStr: string = add(1, 2);
 
 let JSONString = `{"name": "vic", "age": "27"}`;
 
@@ -229,3 +229,67 @@ enum WeekDay {
 let m = WeekDay.Monday;
 
 let w: WeekDay = WeekDay.Wednesday;
+// console.log(w);
+
+let keyW = WeekDay[w];
+// console.log(keyW);
+
+enum baby {
+  Yvonne = 606,
+  Victor = 627,
+}
+
+let i: number = 0;
+for (const key in WeekDay) {
+  i++;
+  const value = WeekDay[key];
+  // console.log({ i, key, value });
+}
+
+// { i: 1, key: '0', value: 'Monday' }
+// { i: 2, key: '1', value: 'Tuesday' }
+// { i: 3, key: '2', value: 'Wednesday' }
+// { i: 4, key: '3', value: 'Thursday' }
+// { i: 5, key: '4', value: 'Friday' }
+// { i: 6, key: '5', value: 'Saturday' }
+// { i: 7, key: '6', value: 'Sunday' }
+// { i: 8, key: 'Monday', value: 0 }
+// { i: 9, key: 'Tuesday', value: 1 }
+// { i: 10, key: 'Wednesday', value: 2 }
+// { i: 11, key: 'Thursday', value: 3 }
+// { i: 12, key: 'Friday', value: 4 }
+// { i: 13, key: 'Saturday', value: 5 }
+// { i: 14, key: 'Sunday', value: 6 }
+
+type math = (a: number, b: number) => number;
+
+let pow: math = function (a: number, b: number) {
+  return a + b;
+};
+
+type person = {
+  name: string;
+  age: number;
+  pet: boolean;
+};
+
+function printPerson(info: person) {
+  console.log(info.name);
+  console.log(info.age);
+  console.log(info.pet);
+}
+
+printPerson({
+  name: "mike",
+  age: 24,
+  pet: true,
+  love: "abby",
+});
+
+let mike = {
+  name: "mike",
+  age: 24,
+  pet: true,
+  love: "abby",
+};
+printPerson(mike);
