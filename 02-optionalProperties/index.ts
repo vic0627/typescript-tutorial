@@ -35,7 +35,7 @@ let accountVic: PersonalAccount = {
   subscribed: false,
 };
 
-console.log(accountVic);
+// console.log(accountVic);
 
 // {
 //    account: 'vic12345',
@@ -47,11 +47,14 @@ console.log(accountVic);
 // function 選用參數
 const add = (num1: number, num2?: number) => {
   if (num2) {
-    return num1 + num2;
+    console.log(num1 + num2);
   } else {
-    return num1 + 3;
+    console.log(num1 + 3);
   }
 };
-
+const addA = add(1);
+const addB = add(2, undefined);
 // 元組選用參數
 type v = [string, string, string?, Date?];
+
+const aa: v = ["sax", "dsc", "1995-05-05", new Date()]
