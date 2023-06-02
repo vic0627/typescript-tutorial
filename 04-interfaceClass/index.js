@@ -57,3 +57,5 @@ const addition = {
         `);
     },
 };
+console.log(addition.add(6, 1));
+console.log(addition.add("94", "321"));
