@@ -40,33 +40,37 @@ function importAllModules(directory, fileName) {
         const filePath = path.join(directory, file);
         // 取得檔案或路徑的詳細訊息
         const stats = fs.statSync(filePath);
+        // 是資料夾，且不為特定路徑
         if (stats.isDirectory() && file !== "utils") {
+            // 若資料夾為設計模式種類，將名稱帶入函式遞迴
             if (file.includes("Patterns"))
                 importAllModules(filePath, file);
+            // 若 fileName 參數存在，繼續帶入遞迴
             else if (fileName)
                 importAllModules(filePath, fileName);
+            // 錯誤路徑
             else
-                importAllModules(filePath);
+                throw new Error("路徑設定錯誤! 請檢查資料夾結構!");
+            // 是 JS 檔
         }
-        else if (filePath.endsWith(".js") && file !== "index.js") {
+        else if (filePath.endsWith(".js")) {
+            if (!fileName)
+                continue;
             const module = require(filePath);
-            if (fileName && !(moduleFunctions[fileName] instanceof Array)) {
+            if (!(moduleFunctions[fileName] instanceof Array))
                 moduleFunctions[fileName] = [];
-            }
-            if (fileName && module.default) {
+            if (module.default)
                 moduleFunctions[fileName].push(module.default);
-            }
         }
     }
 }
 importAllModules(rootPath);
 const print_1 = __importDefault(require("./utils/print"));
 const { Scope, printBlock } = print_1.default;
-for (const pattern in moduleFunctions) {
-    const pb = printBlock(Scope.h1, pattern, function () {
+Object.keys(moduleFunctions).forEach((pattern) => {
+    printBlock(Scope.h1, pattern.split("P").join(" P"), () => {
         moduleFunctions[pattern].forEach((func) => {
             func();
         });
-    });
-    pb();
-}
+    })();
+});
