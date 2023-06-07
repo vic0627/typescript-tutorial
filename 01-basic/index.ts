@@ -283,7 +283,7 @@ printPerson({
   name: "mike",
   age: 24,
   pet: true,
-  love: "abby",
+  // love: "abby",
 });
 
 let mike = {
