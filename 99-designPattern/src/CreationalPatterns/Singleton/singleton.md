@@ -27,3 +27,6 @@ The key concept of theSingleton Pattern is to have a class that is responsible f
 2. Tight coupling: Classes that depand on the Singleton become tightly coupled to it, which can make the code less flexible and harder to modify.
 3. Hidden dependencies: The use of a Singleton can hide dependencies and make it harder to reason about the flow of data and control in the application.
 
+---
+
+Overall, the Single Pattern provides a way to ensure that there is only one instance of a class and enables global access to that instance. It is useful in scenarios where a single, shared resource needs to be managed throughout the application. However, it should be used judiciously, considering the potential drawbacks of global state and thght coupling.

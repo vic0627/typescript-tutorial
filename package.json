@@ -1,0 +1,22 @@
+{
+    "name": "typescript-tutorial",
+    "version": "1.0.0",
+    "description": "typescript tutorial",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "node 99-designPattern/dist/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vic0627/typescript-tutorial.git"
+    },
+    "author": "Victor Hsu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vic0627/typescript-tutorial/issues"
+    },
+    "homepage": "https://github.com/vic0627/typescript-tutorial#readme",
+    "dependencies": {
+        "@types/node": "^20.2.5"
+    }
+}
