@@ -68,13 +68,13 @@ joanne.print();
 // 2. `private`: Members declares as `private` are only accessible within the class itself. They cannot be accessed or modified from outside the class.
 // 3. `protected`: Members declared as `protected` are accessible within the class itself and by derived(從中獲得/dɪˈraɪv/) classes(subclasses) that inherit from the base class. They are not accessible from external code that is not part of the class hierarchy(等級制度/ˈhaɪ.rɑːr.ki/).
 // define the user information of ATM
-type UserAccount = {
+type UserAccount2 = {
     account: string;
     password: string;
     money: number;
 };
 // define AccountSystem interface
-interface AccountSystem {
+interface AccountSystem2 {
     // A user who logs into the ATM system and represents no one if it is undefined
     // currentUser: UserAccount | undefined;
 
@@ -93,18 +93,18 @@ interface TransactionSystem {
     withdraw(amount: number): void;
 }
 // define the completed ATM system by 'extends'
-interface ATMSystem extends AccountSystem, TransactionSystem {}
+interface ATMSystem extends AccountSystem2, TransactionSystem {}
 // `implements`
 // In TS, the `implements` keyword is to define that a class implements a particular interface. It establishes a contract between the class and the interface, starting that the class must provide implementations for all the members(properties, methods, etc.)defined in the interface.
 // create ATM by `implements`
 class ATM implements ATMSystem {
-    private currentUser: UserAccount | undefined;
+    private currentUser: UserAccount2 | undefined;
 
-    constructor(private users: UserAccount[]) {}
+    constructor(private users: UserAccount2[]) {}
 
     signIn(account: string, password: string): void {
         this.currentUser = this.users.find(
-            (user: UserAccount) =>
+            (user: UserAccount2) =>
                 user.account === account && user.password === password
         );
         if (this.currentUser === undefined) throw new Error("User not found!");
@@ -130,7 +130,7 @@ class ATM implements ATMSystem {
         }
     }
 }
-const printInfo = (input: UserAccount | undefined): void => {
+const printInfo = (input: UserAccount2 | undefined): void => {
     if (input === undefined) {
         console.log("User not found!");
     } else {
@@ -141,7 +141,7 @@ const printInfo = (input: UserAccount | undefined): void => {
     }
 };
 // initialize a ATM
-const users: UserAccount[] = [
+const users: UserAccount2[] = [
     { account: "Joanne", password: "asd123", money: 10 },
     { account: "Mike", password: "qwe123", money: 20 },
     { account: "Ivy", password: "zxc123", money: 1000000 },
@@ -266,5 +266,3 @@ console.log(dick.myDick);
 console.log(dick.dickJuice);
 dick.dickJuice = "5";
 console.log(dick.dickJuice);
-
-

@@ -63,4 +63,3 @@ const safeParse = (str) => {
     return JSON.parse(str);
 };
 const safeParseHank = safeParse(jsonStr);
-safeParseHank.name;

@@ -134,3 +134,31 @@ console.log(counter.value); // <- now the output should be 8
 // call "reset" method
 counter.reset();
 console.log(counter.value); // <- output should be the initial state, 8
+// Syntatic Comparison
+// type T = U;
+// interface I {
+// P: U;
+// ...
+// }
+// Application Comparison
+// 1. interface Extension/Inheritance
+// type T = number;
+// interface I {
+//     a: string;
+// }
+// interface F {
+//     (p1: number): number;
+// }
+// type U = T & I;
+// interface J extends F, I {}
+// 2. Declaration Merging
+// interface I1 {
+//     a: string;
+//     b: number;
+//     c: string;
+// }
+// interface T1 {
+//     d: number;
+//     e: string;
+// }
+// Interfaces cannot directly emulate primitive types, Enum and Tuple
